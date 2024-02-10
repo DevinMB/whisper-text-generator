@@ -21,7 +21,7 @@ services:
       apt-get update && apt-get install -y --no-install-recommends git curl python3-venv;
       python3 -m venv /venv;
       source /venv/bin/activate;
-      pip install --no-cache-dir pytz kafka-python python-dotenv tensorflow schedule;
+      pip install --no-cache-dir pytz kafka-python python-dotenv tensorflow schedule flask;
 
       if [ ! -d /data/whisper-text-generator-v${RELEASE_VERSION} ]; then
         mkdir -p /data/whisper-text-generator-v${RELEASE_VERSION} && \
