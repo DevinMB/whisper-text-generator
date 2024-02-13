@@ -21,14 +21,14 @@ services:
       apt-get update && apt-get install -y --no-install-recommends git curl python3-venv;
       python3 -m venv /venv;
       source /venv/bin/activate;
-      pip install --no-cache-dir pytz kafka-python python-dotenv tensorflow schedule flask;
+      pip install --no-cache-dir pytz kafka-python python-dotenv tensorflow schedule fastapi;
 
       if [ ! -d /data/whisper-text-generator-v${RELEASE_VERSION} ]; then
         mkdir -p /data/whisper-text-generator-v${RELEASE_VERSION} && \
         curl -L https://github.com/DevinMB/whisper-text-generator/archive/refs/tags/v${RELEASE_VERSION}.tar.gz | tar xz --strip-components=1 -C /data/whisper-text-generator-v${RELEASE_VERSION};
       fi
       
-      python3 /data/whisper-text-generator-v${RELEASE_VERSION}/whisper-text-generator.py;
+      python3 /data/whisper-text-generator-v${RELEASE_VERSION}/whisper_text_gen_api.py;
       "
 
 networks:

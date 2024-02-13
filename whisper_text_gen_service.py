@@ -2,7 +2,6 @@ import threading
 import json
 import os
 import base64
-from flask import Flask, request, jsonify
 from kafka import KafkaConsumer
 import tensorflow as tf
 import numpy as np
